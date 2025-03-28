@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Nosso Vôlei</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Grupo Nosso Vôlei</h1>
+        <nav>
+            <a href="{% url 'registro' %}">Criar Conta</a>
+            <a href="#">Entrar</a>
+        </nav>
+    </header>
+    <main>
+        <h2>Bem-vindo ao Nosso Vôlei!</h2>
+        <p>Organize partidas, encontre jogadores e aproveite.</p>
+        <a class="btn" href="{% url 'registro' %}">Cadastre-se</a>
+    </main>
+</body>
+</html>
