@@ -1,40 +1,79 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro | Grupo Nosso Vôlei</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>Grupo Nosso Vôlei</h1>
-        <form method="post">
-            {% csrf_token %}
-            <label for="nome">Nome completo</label>
-            <input type="text" id="nome" name="nome" placeholder="Exemplo: João Almeida da Silva Santos" required>
-            
-            <label for="username">UserName</label>
-            <input type="text" id="username" name="username" placeholder="Crie um nome para seu usuário" required>
-            
-            <label for="data_nascimento">Data de nascimento</label>
-            <input type="date" id="data_nascimento" name="data_nascimento" required>
-            
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha" placeholder="************" required>
-            <p class="aviso-senha">Por favor, crie uma senha forte com números e símbolos</p>
-            
-            <label for="rg">RG</label>
-            <input type="text" id="rg" name="rg" placeholder="XX.XXX.XXX-XX" required>
-            
-            <p class="aviso">Anote seu nome de usuário e não o esqueça, ele servirá para caso você esqueça sua senha</p>
-            
-            <button type="submit">Criar</button>
-        </form>
-        <p class="conta-existente-aviso">Já tem uma conta? <a href="{% url 'login' %}">Clique aqui para entrar</a></p>
-    </div>
-</body>
-</html>
+{% load static %}
+<!doctype html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registration - Grupo Nosso Vôlei</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/registro.css' %}" />
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <h1 class="header-title">Grupo Nosso Vôlei</h1>
+            <div class="logo-container">
+                <img src="{% static 'images/logo.png' %}" alt="Logo" class="logo-image" />
+            </div>
+        </div>
+    </header>
+
+    <main class="registration-container">
+        <form class="registration-form" method="POST">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Nome completo</label>
+                    <input type="text" name="full_name" class="form-input"
+                        placeholder="Exemplo: João Almeida da Silva Santos" required />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">UserName</label>
+                    <input type="text" name="username" class="form-input" placeholder="Crie um nome para seu usuário"
+                        required />
+                </div>
+            </div>
+
+            <div class="form-row labels-row">
+                <label class="form-label">Senha</label>
+                <label class="form-label">RG</label>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <input type="password" name="password" class="form-input" placeholder="*****************"
+                        required />
+                    <p class="input-hint">
+                        Por favor, crie uma senha forte com números e símbolos
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" name="rg" class="form-input" placeholder="xx.xxx.xxx-xx" required />
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="create-button">Criar</button>
+                <a href="{% url 'login' %}" class="login-link">Já tem uma conta? Clique aqui para entrar</a>
+            </div>
+        </form>
+
+        <aside class="side-content">
+            <div class="birth-date-group">
+                <label class="form-label">Data de nascimento</label>
+                <input type="date" name="birth_date" class="form-input" required />
+            </div>
+
+            <div class="warning-box">
+                Aviso: Anote seu nome de usuário e não o esqueça, ele servirá para
+                caso voce esqueça sua senha
+            </div>
+        </aside>
+    </main>
+</body>
+
+</html>
